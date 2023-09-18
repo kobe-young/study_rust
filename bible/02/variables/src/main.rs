@@ -1,16 +1,23 @@
 fn main() {
     println!("Hello, world!");
 
+    // 变量，错误示例
     bad_variable();
+    // 变量，正确示例
     good_variable();
 
-    no_use();
+    // 未使用变量
+    no_use_variable();
 
+    // 解构
     destructor();
+    // 解构，模式匹配
     destructor_by_pattern_match();
 
+    // 常量
     const_variable();
 
+    // 范围遮蔽
     range_shadowing();
     range_shadowing2();
 }
@@ -30,7 +37,7 @@ fn good_variable() {
     println!("the value of x is {}", x);
 }
 
-fn no_use() {
+fn no_use_variable() {
     let x = 10; // no use, will warning. detail: help: if this is intentional, prefix it with an underscore: `_x`
     let y = 11;
     println!("the value of the y is {}", y);
