@@ -12,6 +12,7 @@ fn main() {
     const_variable();
 
     range_shadowing();
+    range_shadowing2();
 }
 
 fn bad_variable() {
@@ -72,6 +73,18 @@ fn range_shadowing() {
     {
         // 覆盖外部的x。
         let x = x * 2;
+        println!("the value of x inner scope is {}", x);
+    }
+    println!("the value of x outer scope is {}", x);
+}
+
+fn range_shadowing2() {
+    let mut x = 5;
+    // 覆盖原来的x。
+    let mut x = x + 1; // 编译会出警告：help: remove this `mut`，个人理解为，后面的x，并不是新的x，而是原来的x?
+    {
+        // 覆盖外部的x。
+        let mut x = x * 2; // 编译会出警告：help: remove this `mut`，个人理解为，后面的x，并不是新的x，而是原来的x?
         println!("the value of x inner scope is {}", x);
     }
     println!("the value of x outer scope is {}", x);
