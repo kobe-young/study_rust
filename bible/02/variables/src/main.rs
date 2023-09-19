@@ -20,6 +20,7 @@ fn main() {
     // 范围遮蔽
     range_shadowing();
     range_shadowing2();
+    range_shadowing_change_type();
 }
 
 fn bad_variable() {
@@ -95,4 +96,13 @@ fn range_shadowing2() {
         println!("the value of x inner scope is {}", x);
     }
     println!("the value of x outer scope is {}", x);
+}
+
+fn range_shadowing_change_type() {
+    // 字符串类型
+    let spaces = "   ";
+    println!("the value of spaces is \"{}\"", spaces);
+    // usize数值类型
+    let spaces = spaces.len();
+    println!("shadowing, the value of spaces is {}", spaces);
 }
