@@ -8,6 +8,10 @@ fn main() {
     op();
 
     op2();
+
+    bit_op();
+
+    sequence();
 }
 
 fn integer() {
@@ -117,4 +121,52 @@ fn op2() {
   
     // 打印数组中第一个值，并控制小数位为2位
     println!("{:.2}", forty_twos[0]);
-  }
+}
+
+// 位运算
+fn bit_op() {
+
+    // 1. 有符号整型：
+    // 二进制为00000010
+    let a:i32 = 2;
+    // 二进制为00000011
+    let b:i32 = 3;
+
+    println!("(a&b) value is {}", a&b);
+    println!("(a|b) value is {}", a|b);
+    println!("(a^b) value is {}", a^b); // 异或，相同位为0，不同位为1.
+    println!("(!b) value is {}", !b); // 取反，这里忽略符号位。
+    println!("(a<<b) value is {}", a<<b);
+    println!("(a>>b) value is {}", a>>b);
+
+    let mut a = a;
+    // 注意这些计算符除了!之外都可以加上=进行赋值 (因为!=要用来判断不等于)
+    a <<= b;
+    println!("(a<<b) value is {}", a);
+
+    // 2. 无符号整型
+    let mut a: u8 = 2;
+    let mut b: u8 = 3;
+
+    println!("(a&b) value is {}", a&b);
+    println!("(a|b) value is {}", a|b);
+    println!("(a^b) value is {}", a^b); // 异或，相同位为0，不同位为1.
+    println!("(!b) value is {}", !b); // 取反，这里忽略符号位。
+    println!("(a<<b) value is {}", a<<b);
+    println!("(a>>b) value is {}", a>>b);
+}
+
+fn sequence() {
+    for i in 1..5 {
+        println!("i = {}", i);
+    }
+    for i in 1..=5 {
+        println!("i = {}", i);
+    }
+    for i in 'a'..'z' {
+        println!("i = {}", i);
+    }
+    for i in 'a'..='z' {
+        println!("i = {}", i);
+    }
+}
